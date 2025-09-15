@@ -31,22 +31,29 @@ function hitungDanSimpan() {
     // Tentukan derajat masalah dan rekomendasi
     let derajat, rekomendasi;
 
+
     if (totalNilai === 0) {
         derajat = "Tidak Ada Masalah";
         rekomendasi = "Anda tidak menunjukkan tanda-tanda penyalahgunaan zat. Pertahankan gaya hidup sehat.";
     } else if (totalNilai >= 1 && totalNilai <= 2) {
         derajat = "Masalah Ringan";
-        rekomendasi = "Anda menunjukkan tanda-tanda ringan. Disarankan untuk lebih waspada dan berkonsultasi dengan ahli jika diperlukan.";
+        rekomendasi = "Anda menunjukkan tanda-tanda ringan. Disarankan untuk lebih waspada dan berkonsultasi dengan ahli jika diperlukan.<br>"
+            + "Hubungi via WhatsApp: <a href='https://wa.me/6281211441123' target='_blank'>6281211441123</a>";
     } else if (totalNilai >= 3 && totalNilai <= 5) {
         derajat = "Masalah Sedang";
-        rekomendasi = "Anda menunjukkan tanda-tanda masalah sedang. Sangat disarankan untuk berkonsultasi dengan profesional kesehatan.";
+        rekomendasi = "Anda menunjukkan tanda-tanda masalah sedang. Sangat disarankan untuk berkonsultasi dengan profesional kesehatan atau konselor adiksi.<br>"
+            + "Hubungi via WhatsApp: <a href='https://wa.me/6281211441123' target='_blank'>6281211441123</a>";
     } else if (totalNilai >= 6 && totalNilai <= 8) {
         derajat = "Masalah Berat";
-        rekomendasi = "Anda menunjukkan tanda-tanda masalah berat. Segera cari bantuan profesional untuk evaluasi dan treatment.";
+        rekomendasi = "Anda menunjukkan tanda-tanda masalah berat. Segera cari bantuan profesional atau konselor adiksi untuk evaluasi dan treatment.<br>"
+            + "Hubungi via WhatsApp: <a href='https://wa.me/6281211441123' target='_blank'>6281211441123</a>";
     } else {
         derajat = "Masalah Sangat Berat";
-        rekomendasi = "Anda menunjukkan tanda-tanda masalah sangat berat. Segera hubungi profesional kesehatan untuk mendapatkan bantuan intensif.";
+        rekomendasi = "Anda menunjukkan tanda-tanda masalah sangat berat. "
+            + "Segera hubungi profesional kesehatan atau konselor adiksi untuk mendapatkan bantuan intensif.<br>"
+            + "Hubungi via WhatsApp: <a href='https://wa.me/6281211441123' target='_blank'>6281211441123</a>";
     }
+
 
     // Tampilkan hasil
     displayResult(totalNilai, derajat, rekomendasi);
@@ -74,7 +81,7 @@ function hitungDanSimpan() {
 function displayResult(totalNilai, derajat, rekomendasi) {
     document.getElementById('totalNilai').textContent = totalNilai;
     document.getElementById('derajat').textContent = derajat;
-    document.getElementById('rekomendasi').textContent = rekomendasi;
+    document.getElementById('rekomendasi').innerHTML = rekomendasi;
     document.getElementById('hasilBox').style.display = 'block';
 
     // Scroll ke hasil
